@@ -14,9 +14,17 @@ def get_player_name():
             return player_name      
 
 # Display the Initial Board
- def display_board(board):
+def display_board(board):
     for i, row in enumerate(board, start=1):
          formatted_row = f"row {i}: " + " ".join([str(unit) for unit in row])
          print(formatted_row)
 
-         
+# Take Units from a row
+def take_units(row, units):
+    if units < 1 or units > len(row):
+        print(f"Invalid input. You can take between 1 and {len(row)} items. Please Try again.")
+        return False
+
+    row[-units:] = []
+    return True
+    
