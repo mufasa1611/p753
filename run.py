@@ -94,3 +94,9 @@ print("Each row has a different number of tokens.")
 print("On your turn, you can choose a row and take a certain number of tokens from it.")
 print("The goal is to leave the last unit for your opponent.\n")
 print("Let's get started!\n")
+
+# Game start
+player = get_player_name()
+while True:
+    play_game(player)
+    
