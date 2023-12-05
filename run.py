@@ -99,4 +99,10 @@ print("Let's get started!\n")
 player = get_player_name()
 while True:
     play_game(player)
-    
+
+# Retry or quit option   
+    play_again = input(f"Do you want to play again {player}? (yes/no): ").strip().lower()
+    if not play_again.startswith('y'):
+        print(f"Goodbye! {player}")
+
+    break
