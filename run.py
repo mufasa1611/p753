@@ -1,6 +1,7 @@
 # Import Required Module 
 import random
-        
+import copy
+
 # Define the Initial Board
 Initial_board = [[1, 2, 3, 4, 5, 6, 7],
                  [1, 2, 3, 4, 5],
@@ -70,7 +71,7 @@ def computer_turn(board):
 
 # Game Loop
 def play_game(player):
-    current_board = Initial_board
+    current_board = copy.deepcopy(Initial_board)
 
     while True:
         player_turn(current_board, player)
