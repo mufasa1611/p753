@@ -67,3 +67,23 @@ def computer_turn(board):
     units = random.randint(1, len(selected_row))
     take_units(selected_row, units)
     print(f"Computer took {units} units from row {pick_row + 1}.")
+
+# Game Loop
+def play_game(player):
+    current_board = Initial_board
+
+    while True:
+        player_turn(current_board, player)
+        display_board(current_board)
+
+        if sum(map(len, current_board)) == 1:
+            print(f"{player} wins!")
+            break
+
+        computer_turn(current_board)
+
+        if sum(map(len, current_board)) == 1:
+            display_board(current_board)
+            print("Computer wins!")
+            break
+        
