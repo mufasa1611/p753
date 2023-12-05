@@ -3,8 +3,8 @@ import random
         
 # Define the Initial Board
 Initial_board = [[1, 2, 3, 4, 5, 6, 7],
-                [1, 2, 3, 4, 5],
-                [1, 2, 3]]
+                 [1, 2, 3, 4, 5],
+                 [1, 2, 3]]
 
 #  Get Player Name
 def get_player_name():
@@ -53,5 +53,17 @@ def player_turn(board, player):
 
     take_units(selected_row, units)
 
-
+    # Computer turn
+def computer_turn(board):
+    print("\nComputer's Turn:")
     
+    available_rows = [i for i, row in enumerate(board) if len(row) > 0]
+    if not available_rows:
+        print("Computer wins!")
+        return
+
+    pick_row = random.choice(available_rows)
+    selected_row = board[pick_row]
+    units = random.randint(1, len(selected_row))
+    take_units(selected_row, units)
+    print(f"Computer took {units} units from row {pick_row + 1}.")
