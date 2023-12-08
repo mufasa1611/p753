@@ -34,6 +34,10 @@ def take_units(row, units):
     row[-units:] = []
     return True
 
+# Calculate remaining units on the board 
+def units_left(board):
+    return sum(map(len, board))
+
 # Execute Player Turn
 def player_turn(board, player):
     print(f"\n{player}'s Turn:")
@@ -58,13 +62,15 @@ def player_turn(board, player):
 
     # Select units
     units = None
-    while units is None or units < 1 or units > len(selected_row):
+    while units is None or units < 1 or units > len(selected_row) or units >= units_left(board):
         try:
             units = int(input(f"How many units to take from row {pick_row}? "))
-            if units < 1 or units > len(selected_row):
+            if units is None or units < 1 or units > len(selected_row) or \
+                    units >= units_left(board):
                 print(
-                    f"Invalid input. Please enter a number",
-                   f" between 1 and {len(selected_row)}.")
+                    f"Invalid input. Please enter a number between 1 and ",
+                    f"{min(len(selected_row), units_left(board) - 1)}."
+                )
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
@@ -81,7 +87,8 @@ def computer_turn(board):
 
     pick_row = random.choice(available_rows)
     selected_row = board[pick_row]
-    units = random.randint(1, len(selected_row))
+    max_units = min(len(selected_row), units_left(board) - 1)
+    units = random.randint(1, max_units)
     take_units(selected_row, units)
     print(f"Computer took {units} units from row {pick_row + 1}.")
 
