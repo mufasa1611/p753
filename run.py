@@ -11,8 +11,10 @@ Initial_board = [[1, 2, 3, 4, 5, 6, 7],
 def get_player_name():
     while True:
         player = input("Enter your name: ").strip()
-        if player:
+        if player.isalpha():
             return player
+        else:
+            print("Invalid input. Please enter alphabetic characters only.")
 
 # Display the Initial Board
 def display_board(board):
@@ -24,8 +26,9 @@ def display_board(board):
 def take_units(row, units):
     if units < 1 or units > len(row):
         print(
-            f"Invalid input. You can take between 1 \
-            and {len(row)} items. Please Try again.")
+            f"Invalid input. You can take between 1",
+            f"and {len(row)} items. Please Try again."
+        )
         return False
 
     row[-units:] = []
@@ -38,23 +41,32 @@ def player_turn(board, player):
 
     # Select a row
     pick_row = None
+    selected_row = None
     while pick_row is None or pick_row < 1 or \
             pick_row > 3 or len(board[pick_row - 1]) == 0:
-        pick_row = int(input("Choose a row (1, 2, or 3): "))
-        if pick_row < 1 or pick_row > 3:
-            print("Invalid row choice. Please enter 1, 2, or 3.")
-        elif len(board[pick_row - 1]) == 0:
-            print("That row is empty. Choose another row.")
 
-    selected_row = board[pick_row - 1]
+            try:
+                pick_row = int(input("Choose a row (1, 2, or 3): "))
+                if pick_row < 1 or pick_row > 3:
+                    print("Invalid row choice. Please enter 1, 2, or 3.")
+                elif len(board[pick_row - 1]) == 0:
+                    print("That row is empty. Choose another row.")
+                else:
+                    selected_row = board[pick_row - 1]
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
 
     # Select units
     units = None
     while units is None or units < 1 or units > len(selected_row):
-        units = int(input(f"How many units to take from row {pick_row}? "))
-        if units < 1 or units > len(selected_row):
-            print(f"Invalid input. Please enter a number \
-                between 1 and {len(selected_row)}.")
+        try:
+            units = int(input(f"How many units to take from row {pick_row}? "))
+            if units < 1 or units > len(selected_row):
+                print(
+                    f"Invalid input. Please enter a number",
+                   f" between 1 and {len(selected_row)}.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
     take_units(selected_row, units)
 
