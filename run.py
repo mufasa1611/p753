@@ -1,4 +1,5 @@
 # Import Required Module
+from termcolor import colored
 import random
 import copy
 
@@ -11,24 +12,22 @@ Initial_board = [[1, 2, 3, 4, 5, 6, 7],
 def get_player_name():
     while True:
         player = input("Enter your name: ").strip()
-        if player.isalpha():
+        if player:
             return player
-        else:
-            print("Invalid input. Please enter alphabetic characters only.")
 
 # Display the Initial Board
 def display_board(board):
     for i, row in enumerate(board, start=1):
-        formatted_row = f"row {i}: " + " ".join(['X' for unit in row])
+        formatted_row = f"row {i}: " + " ".join([colored('X', 'green')for _ in row])
+
         print(formatted_row)
 
 # Take Units from a row
 def take_units(row, units):
     if units < 1 or units > len(row):
         print(
-            f"Invalid input. You can take between 1",
-            f"and {len(row)} items. Please Try again."
-        )
+            f"Invalid input. You can take between 1 \
+            and {len(row)} items. Please Try again.")
         return False
 
     row[-units:] = []
@@ -130,5 +129,5 @@ while True:
     play_again = input(
         f"Do you want to play again {player}? (yes/no): ").strip().lower()
     if not play_again.startswith('y'):
-        print(f"Goodbye! {player}")
+        print(f"Goodbye .. see you soon! {player}")
         break
