@@ -1,11 +1,12 @@
-
 # Welcome to the (7/5/3) Game of Rows!
 
-This game is played in turns by a player and the computer. The initial Board shows three rows under each other.
-Each rows has a different number of units: 7, 5 and 3. In order to win, the player has to chose a row and take any 
-number of available units from it. The objective is to have the opponent pick the last unit, as the one who takes the final unit loses the game. 
+This game is played in turns by a player and the computer. The Initial Board shows three rows under each other.
+Each row has a different number of units: 7, 5 and 3. In order to win, the player has to choose a row and take any 
+number of available units from it. The objective is to have the opponent pick the last unit, as the one who takes the 
+final unit loses the game. 
 
 Visit the site [here](https://p753-89138808fc35.herokuapp.com/).
+
 
 ## Table of Contents
 
@@ -13,13 +14,14 @@ Visit the site [here](https://p753-89138808fc35.herokuapp.com/).
 2. [Features](#features)
 3. [UX](#ux)
 4. [Testing](#testing)
-5. [Sources](#sources)
+5. [Technologies Used](#technologies-used)
 6. [Credits](#credits)
+
 
 ## Design
 
 The game is implemented in Python and utilizes basic input validation, error handling and randomization for the computer moves.
-I added termcolor to my requirements and imported colored for entertainment and better user experience. 
+I added termcolor to my requirements and imported colored, copy and random python libraries.
 
 ### Flowchart
 
@@ -28,7 +30,8 @@ logical steps followed while coding/ playing the game.
 
 ![Flowchart](img/game-of-row.png)
 
-## Features / Game Steps
+
+## Features
 
 - **Welcome Message**
     - The game starts with a welcome message
@@ -46,12 +49,12 @@ logical steps followed while coding/ playing the game.
 ![Error message for username](img/username.error.png)
 
 - **Initial board**
-    - After entering a valid username, the initial board is displayed showing the three rows with each 7, 5 and 3 units.
+    - After entering a valid username, the Initial board is displayed showing the three rows with each 7, 5 and 3 units.
      
 ![Initial board](img/initial.board.png)
 
 - **Playing the game**
-    - The user is requested to chose one row (1, 2 or 3).
+    - The user is requested to choose one row (1, 2 or 3).
     - If the user enters an invalid number or sign, an error message is displayed in red color.
     - The input can not be alphabetic characters, a non-existing row or an empty row.
     - The user is asked to enter a valid number.
@@ -61,7 +64,7 @@ logical steps followed while coding/ playing the game.
   - After entering a valid row number, the user is asked to take any number of units from the chosen row.
   - If an invalid entry is made, an error message is displayed in red color.
   - The input is not valid if alphabetic characters are entered, or if the number of tokens entered exceeds 
-the available tokens in     the chosen row, or if the total number of tokens in the last remaining row are chosen.
+the available tokens in the chosen row, or if the total number of tokens in the last remaining row are chosen.
   - The user is prompted to enter a valid number.
 
 ![error message unit](img/units.error2.png), ![](img/0.units.error1.png)
@@ -86,30 +89,24 @@ the available tokens in     the chosen row, or if the total number of tokens in 
 
 ![Play again](img/play.again.png)
 
-
 ### Possible Future Features
 
 - As of now, the computer is taking its turns based on randomized choice. In the future I would like to 
 implement a strategic and logic aim for the computer to make moves that lead to a winning position, forcing the 
 player to pick the last unit, mixed with some randomization to make the game more dynamic.
 
+
 ## UX
 
-**Personalized Username**
-- Users can enter their name for the player.
+**Personalized Username:** Users can enter their name for the player.
 
-**Clear Instructions**
-- The game provides clear instructions and prompts on how to play, including choosing rows and taking units. 
+**Clear Instructions:** The game provides clear instructions and prompts on how to play, including choosing rows and taking units. 
 
-**Error Messages**
-- Error Messages are displayed in case of invalid input.
+**Error Messages:** Error Messages are displayed in case of invalid input.
 
-**Engaging Gameplay**
-- The random moves of the computer opponent add an element of surprise and strategy to the game.
+**Engaging Gameplay:** The random moves of the computer opponent add an element of surprise and strategy to the game.
 
-**Colorful Interface**
-- The game utilizes the termcolor library to enhance the user interface with colored text.
-
+**Colorful Interface:** The game utilizes the termcolor library to enhance the user interface with colored text.
 
 ### Site Goals
 
@@ -129,10 +126,11 @@ computer opponent that provides a fun and strategic experience.
 - I want to engage in an interactive and challenging game that involves strategic decision-making. 
 - I want a visually appealing interface that enhances my gaming experience. 
  
+
 ## Testing
 
 - The game has undergone testing with users to assess the overall playability, basic functionality
-and to identify potential improvements.
+and to identify potential improvements on my local terminal and the Code Institute Heroku terminal.
 
 ### Fixed Bugs
 
@@ -148,7 +146,6 @@ This function is utilized throughout the game logic to validate the number of un
 - The "try-except" block ensures valid user input for row selection. It attempts to convert the input
 to an integer, checks its validity, and handles errors.
 
-
 ### Unfixed Bugs
 
 - None.
@@ -161,6 +158,14 @@ to an integer, checks its validity, and handles errors.
 ![report](img/lighthouse.png)
 
 ### Browser Testing 
+
+The game was tested on the following browsers:
+- Microsoft Edge (Desktop)
+- Brave (Desktop)
+- Microsoft Edge (Android Mobile)
+- Google Chrome (Android Mobile)
+- Firefox (Android Mobile)
+- Opera (Android Mobile)
 
 ### Manual Testing of Logic and Input Validation
 **Alphabetic Username:**
@@ -190,6 +195,7 @@ until a numeric input is provided.
 - Procedure: Try to select all the remaining units in the last remaining row. 
 - Result: The game prompts the user with an error message and offers the available options to choose from.
  
+
 ## Deployment
 The repository was created on GitHub
 - generated from [Code-Institute-Org/python-essentials-template](https://github.com/Code-Institute-Org/python-essentials-template)
@@ -227,14 +233,19 @@ Deployment Steps:
    - Click "Deploy Branch" to manually deploy the project.
 
 
-## Technologies Used and Sources
+## Technologies Used
 
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) as the programming language
 - The Flowchart was created with [whimsical](https://whimsical.com/)
 - Jetbrains [PYCharm](https://www.jetbrains.com/pycharm/download/?section=windows) 
+- [Python Libraries](https://docs.python.org/3.10/library/index.html): random, copy
+- [Python Termcolor](https://pypi.org/project/termcolor/): termcolor colored
+
 
 ## Credits
 
-- Youtube channel of [Corey Schafer's Python Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU) 
+- YouTube channel of [Corey Schafer's Python Tutorials](https://www.youtube.com/playlist?list=PL-osiE80TeTt2d9bfVyTiXJA-UTHn6WwU) 
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/python): A community where programmers ask and answer questions.
+- Python official documentation and tutorials [Python.org](https://docs.python.org/3/)
+- [Reddit Python Community](https://www.reddit.com/r/Python/) 
 - Special thanks to my group facilitator, [Kay Welfare](https://code-institute-room.slack.com/team/U056NU8DZEW) for her ongoing support and feedback.
